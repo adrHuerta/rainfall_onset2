@@ -9,4 +9,4 @@ Here I provide a faster version using (almost) pure R/python.
   <img src="./python/sample_PRCPTOT_year1.png" />
 </p>
 
-*Figure. Sample total precipitation in the first year for the wet period. Data source: [PISCOp](http://iridl.ldeo.columbia.edu/SOURCES/.SENAMHI/.HSR/.PISCO/.Prec/.v2p1/.stable/.daily/)*
+*Figure. Sample total precipitation (mm) in the first year for the wet period. Data source: [PISCOp](http://iridl.ldeo.columbia.edu/SOURCES/.SENAMHI/.HSR/.PISCO/.Prec/.v2p1/.stable/.daily/)*
