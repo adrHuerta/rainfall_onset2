@@ -71,5 +71,5 @@ lengthOC_gridded <- raster::calc(OC_gridded,
                                    
                                  })
 
-# spatial variability of the lengthOC in the year n13
-sp::spplot(lengthOC_gridded[[13]])
+# spatial variability of the lengthOC in the year 1
+sp::spplot(lengthOC_gridded[[1]])

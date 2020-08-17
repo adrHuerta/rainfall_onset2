@@ -8,8 +8,8 @@ def dailyClim(x):
 
 def getDate(x, i_wet_i, f_wet_i, wInd, R_ave):
 
-    i_wet = i_wet_i - wInd
-    f_wet = f_wet_i + wInd
+    i_wet = int(np.where(i_wet_i - wInd < 0, 0, i_wet_i - wInd))
+    f_wet = int(np.where(f_wet_i + wInd > 365, 365, f_wet_i + wInd))
     d_year = np.cumsum(x[i_wet:f_wet] - R_ave)
     onset_year = np.argmin(d_year)
     cessation_year = np.argmax(d_year)
@@ -17,8 +17,6 @@ def getDate(x, i_wet_i, f_wet_i, wInd, R_ave):
     return [onset_year, cessation_year]
 
 def getOnsetCessation(x, wInd=45):
-
-    x = x.values
 
     ## daily climatology
     daily_clim = dailyClim(x)
