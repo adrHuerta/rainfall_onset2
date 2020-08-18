@@ -53,7 +53,7 @@ piscop = piscop[[zoo::coredata(piscop_ts)]] # this process is really slow!
 piscop = piscop + 0                         # to get numeric data (bug)
 
 # getting Onset Cessation dates
-OC_gridded <- raster::calc(piscop, fun = getOnsetCessation_gridded)
+OC_gridded <- raster::calc(piscop, fun = getOnsetCessation)
 
 
 # length of wet season by OC (lengthOC)
