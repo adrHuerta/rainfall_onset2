@@ -11,8 +11,8 @@ def getDate(x, i_wet_i, f_wet_i, wInd, R_ave):
     i_wet = int(np.where(i_wet_i - wInd < 0, 0, i_wet_i - wInd))
     f_wet = int(np.where(f_wet_i + wInd > 365, 365, f_wet_i + wInd))
     d_year = np.cumsum(x[i_wet:f_wet] - R_ave)
-    onset_year = np.argmin(d_year)
-    cessation_year = np.argmax(d_year)
+    onset_year = np.nan if np.isnan(d_year).any() else np.argmin(d_year)
+    cessation_year = np.nan if np.isnan(d_year).any() else np.argmax(d_year)
 
     return [onset_year, cessation_year]
 
@@ -36,3 +36,16 @@ def getOnsetCessation(x, wInd=45):
                            wet_periods))
 
     return np.concatenate(wet_periods, axis=0) + np.repeat(np.arange(0, len(x), 365), 2)
+
+def getMeanOnsetCessation(x):
+
+    ## daily climatology
+    daily_clim = dailyClim(x)
+
+    ## climatology onset and cessation dates
+    R_ave = np.mean(daily_clim)
+    d = np.cumsum(daily_clim - R_ave)
+    i_wet_clim = np.nan if np.isnan(d).any() else np.argmin(d)
+    f_wet_clim = np.nan if np.isnan(d).any() else np.argmax(d)
+
+    return np.array([i_wet_clim, f_wet_clim, R_ave])
