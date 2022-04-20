@@ -5,6 +5,7 @@ import xarray as xr
 exec(open("./python/getOnsetCessation.py").read())
 
 ### gridded calculation ----------------------------------------------------------------
+# Example for Ghana using CHIRPS
 
 chirps = xr.open_dataset("./data/chirps_gh.nc")
 
